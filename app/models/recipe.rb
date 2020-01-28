@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  belongs_to :user
+
   def ingredients_list
     ingredients.split(", ")
   end
@@ -28,6 +30,13 @@ class Recipe < ApplicationRecord
       time_message += "#{minutes} #{'Minutes'.pluralize(minutes)}"
     end 
 
+  end 
+
+    def chef
+      user.name
+    end 
+
+
     # Refactored: 
 
     # def friendly_prep_time
@@ -41,7 +50,6 @@ class Recipe < ApplicationRecord
 
     #   time_message
     # end 
-  end 
 end
 
 
